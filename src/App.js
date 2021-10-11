@@ -21,7 +21,7 @@ export default function App() {
   const user = useContext(UserContext);
 
   useEffect(() => {
-    console.log(`User is logged in ? ${ user ? "yes" : "no" }`);
+    console.log(`User is logged in ? ${user ? 'yes' : 'no'}`);
   }, []);
 
   /**
@@ -29,12 +29,8 @@ export default function App() {
    * @returns
    */
   function RouteIfLoggedIn({ path, children }) {
-    console.log( user ? "user exists" : "user not logged in");
-    return (
-      <Route path={path} >
-        { !user ? <Redirect to="/" /> : children }
-      </Route>
-    );
+    console.log(user ? 'user exists' : 'user not logged in');
+    return <Route path={path}>{!user ? <Redirect to="/" /> : children}</Route>;
   }
 
   return (

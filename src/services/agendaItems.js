@@ -28,7 +28,7 @@ export const updateAgendaItem = ({
   startTime,
   expectedDuration,
   isCurrent,
-  actualDuration
+  actualDuration,
 }) => {
   const body = {
     ...(name && { name }),

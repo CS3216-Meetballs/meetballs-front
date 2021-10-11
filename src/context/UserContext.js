@@ -23,13 +23,16 @@ const UserProvider = ({ children }) => {
         const user = await getUser();
         setUser(user.data);
       } catch (err) {
-        console.log('Error getting user', err)
+        console.log('Error getting user', err);
       }
     };
     document.addEventListener(accessTokenKey, updateUser, false);
     refresh()
       .catch((err) => console.log('refresh failed'))
-      .finally(() => {console.log(user); setLoading(false)});
+      .finally(() => {
+        console.log(user);
+        setLoading(false);
+      });
 
     return () => {
       document.removeEventListener(accessTokenKey, updateUser, false);
@@ -37,9 +40,7 @@ const UserProvider = ({ children }) => {
   }, []);
 
   if (loading) {
-    return (
-      <FullLoadingIndicator/>
-    );
+    return <FullLoadingIndicator />;
   }
 
   return <UserContext.Provider value={user}>{children}</UserContext.Provider>;

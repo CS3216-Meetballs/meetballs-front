@@ -26,7 +26,7 @@ export const markParticipantPresent = (meetingId, userEmail) => {
   const body = {
     email: userEmail,
   };
-  console.log(server.defaults.headers)
+  console.log(server.defaults.headers);
   return server.put(`participant/${meetingId}/present`, body);
 };
 

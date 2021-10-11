@@ -4,7 +4,12 @@ import {
   markParticipantAbsent,
 } from '../../services/participants';
 
-export default function ParticipantList({ meeting, setMeeting, position, shouldShowButton }) {
+export default function ParticipantList({
+  meeting,
+  setMeeting,
+  position,
+  shouldShowButton,
+}) {
   const items = [];
   const participants = meeting.participants;
   const ended = position >= meeting.agendaItems.length;

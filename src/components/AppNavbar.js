@@ -12,7 +12,7 @@ export const AppNavbar = ({ showButton = true, buttonType = 'dashboard' }) => {
   function logout() {
     window.sessionStorage.clear();
     window.localStorage.clear();
-    setAuthToken(null)
+    setAuthToken(null);
     history.replace('/login');
   }
 
@@ -23,7 +23,7 @@ export const AppNavbar = ({ showButton = true, buttonType = 'dashboard' }) => {
       className="Container__fixed-header .navbar-text"
     >
       <Container>
-        <Navbar.Brand 
+        <Navbar.Brand
           style={{ alignItems: 'center', display: 'flex', cursor: 'pointer' }}
           onClick={() => history.push('/')}
         >
