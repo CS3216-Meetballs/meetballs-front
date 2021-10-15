@@ -46,7 +46,7 @@ export default function AddMeetingOverlay({
       });
       setZoomMeetingList(filteredList);
     } catch (err) {
-      // show toast err
+      toast.error(err.response?.data?.message);
     } finally {
       setLoading(false);
     }
@@ -73,7 +73,7 @@ export default function AddMeetingOverlay({
     };
     const key = isZoomMeeting ? `/zoom/meetings/${meetingId}` : '/meeting';
     setLoading(true);
-    await server
+    return server
       .post(key, newMeeting, defaultHeaders)
       .then((res) => {
         onUpdate();
@@ -208,6 +208,10 @@ export default function AddMeetingOverlay({
   function ZoomMeetingList({ setFieldValue }) {
     const items = [];
     zoomMeetingList.forEach((meeting, idx) => {
+      const startTime = meeting.start_time;
+      const dateStr = startTime
+        ? getFormattedDateTime(new Date(startTime))
+        : "No date available";
       items.push(
         <div className="Container__padding--vertical-small Clickable" key={idx}>
           <Card
@@ -218,9 +222,7 @@ export default function AddMeetingOverlay({
           >
             <Card.Body>
               <Card.Title>{meeting.topic}</Card.Title>
-              <Card.Text>
-                {getFormattedDateTime(new Date(meeting.start_time))}
-              </Card.Text>
+              <Card.Text>{dateStr}</Card.Text>
             </Card.Body>
           </Card>
         </div>,

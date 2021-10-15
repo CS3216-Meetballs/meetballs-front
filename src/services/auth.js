@@ -54,17 +54,12 @@ export const refresh = async () => {
 };
 
 export const zoomLogin = async (code) => {
-  try {
-    const res = await server.post(`auth/zoom/login`, null, {
-      params: { code },
-    });
-    const data = res.data;
-    storeToken(data, zoomRefresh, 'zoom');
-    return true;
-  } catch (err) {
-    console.log(err.message);
-    throw err;
-  }
+  const res = await server.post(`auth/zoom/login`, null, {
+    params: { code },
+  });
+  const data = res.data;
+  storeToken(data, zoomRefresh, 'zoom');
+  return true;
 };
 
 export const zoomRefresh = async () => {

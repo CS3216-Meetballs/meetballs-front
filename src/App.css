@@ -93,6 +93,18 @@
   color: var(--text);
 }
 
+.Text__list {
+  font-size: 17px;
+  display: inline-block;
+  word-break: break-word;
+  white-space: pre-line;
+  color: var(--text);
+}
+
+.Text__list li {
+  margin-top: 10px;
+}
+
 .Text__elipsized--1-line {
   display: inline-block;
   word-break: break-word;
@@ -104,7 +116,6 @@
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   -webkit-line-clamp: 1;
-  color: --text;
 }
 
 .Text__elipsized--5-lines {
@@ -117,7 +128,6 @@
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   -webkit-line-clamp: 5;
-  color: var(--text);
 }
 
 .Text__card-header {

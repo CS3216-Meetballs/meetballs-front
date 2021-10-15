@@ -35,6 +35,8 @@ export default function SupportPage() {
           <p className="Text__header">Got any questions?</p>
           <p className="Text__paragraph">
             MeetBalls is committed to providing you with the finest experience.
+          </p>
+          <p className="Text__paragraph">
             For any enqueries or feedback regarding MeetBalls, please email us
             at{' '}
             <b>

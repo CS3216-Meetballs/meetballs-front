@@ -277,15 +277,13 @@ function AgendaToggle({ position, time, agenda, id, startMeeting, nextItem }) {
     );
   } else if (position < agenda.length) {
     const isLastItem = position === agenda.length - 1;
-    const message = isLastItem ? "Finish Meeting" : "Next Item";
+    const message = isLastItem ? 'Finish Meeting' : 'Next Item';
     return (
       <Button onClick={() => nextItem(time, agenda, id)}>{message}</Button>
     );
   } else {
     return (
-      <Button href={`/completed/${id}`}>
-        Meeting Ended - View Report
-      </Button>
+      <Button href={`/completed/${id}`}>Meeting Ended - View Report</Button>
     );
   }
 }

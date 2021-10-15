@@ -15,8 +15,8 @@ export default function ConfirmInviteModel({
       <Modal.Body>
         <div>
           <p className="Text__paragraph">
-            Invitation to meeting - <b>{meetingName}</b> - will be sent to
-            these participants.
+            Invitation to meeting - <b>{meetingName}</b> - will be sent to these
+            participants.
           </p>
           <Card
             style={{

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Container, Row, Image } from 'react-bootstrap';
 import { CalendarPlusFill } from 'react-bootstrap-icons';
 import UpcomingMeetingItem from './UpcomingMeetingItem';
+import OngoingMeetingItem from './OngoingMeetingItem';
 import { defaultHeaders } from '../../utils/axiosConfig';
 import AddMeetingOverlay from './AddMeetingOverlay';
 import server from '../../services/server';
@@ -92,13 +93,17 @@ export default function DashboardScreen() {
     return false;
   }
 
-  const upcomingList = upcoming.map((meeting, idx) => (
-    <UpcomingMeetingItem
-      key={idx}
-      meeting={meeting}
-      pullMeeting={pullMeetings}
-    />
-  ));
+  const upcomingList = upcoming.map((meeting, idx) =>
+    meeting.type === 1 ? (
+      <UpcomingMeetingItem
+        key={idx}
+        meeting={meeting}
+        pullMeeting={pullMeetings}
+      />
+    ) : (
+      <OngoingMeetingItem key={idx} meeting={meeting} />
+    ),
+  );
 
   const historyList = meetingHistory.map((meeting, idx) => (
     <CompletedMeetingItem key={idx} meeting={meeting} />

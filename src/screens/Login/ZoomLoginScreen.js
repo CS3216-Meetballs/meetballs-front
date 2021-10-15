@@ -7,8 +7,6 @@ export default function ZoomLoginScreen() {
     response_type: 'code',
     client_id: zoomClientId,
     redirect_uri: zoomRedirectUrl,
-    // TODO: remove before publishing
-    state: process.env.NODE_ENV === 'development' ? 'type=dev' : '',
   });
 
   return (
